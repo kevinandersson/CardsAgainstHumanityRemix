@@ -64,6 +64,26 @@
 #CHANGELOG
 
 # 	----------------------------------------------------------------------	
+	December 29th 2012
+# 	----------------------------------------------------------------------
+
+	Forgot to changelog
+	Added splashscreen to let people know this is not an official webapp
+	Added the code to GIT: https://github.com/kevinandersson/CardsAgainstHumanityRemix
+	Added button on cards, for older phones (swipe problems)
+	Added a new menu if only one card can be played
+	Added a new menu if more than one card can be played
+	Added Czar card preview on player hands
+	Added layering on player played hand cards; you can now tap the cards to show the lower cards
+	Tapping the czar card when a hand is played, zooms the czar card
+	Czar mode: Player hands are now displayed correctly
+
+	TODO: 
+	Add zoom to czar preview card 
+	Point management, if the czar has appointed points add a new menu for player	
+	
+
+# 	----------------------------------------------------------------------	
 	December 21th 2012
 # 	----------------------------------------------------------------------
 	Added server callback when clicking black cards as player
