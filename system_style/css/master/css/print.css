@@ -1,0 +1,65 @@
+/* ---------- General Layout ---------- */
+html{
+	position: static; 
+	overflow: visible; 
+	float: none; 
+
+}
+body{overflow:visible !important;} 
+
+/* ---------- Node Pages ---------- */
+
+#comments .title,
+#comments form,
+.comment_forbidden {
+  display: none;
+}
+
+
+body {
+	background: white;
+/*	font-size:90%;*/
+	}
+	
+.header_wrapper {
+	display: none;
+}
+
+#sidebar,
+.content_container .submit_container{
+	display: none;
+}
+
+#content{
+	position: relative;
+	left: 0;
+}
+
+.content_container{
+	background: transparent;
+	box-shadow: none;	
+}
+
+*{
+	text-shadow: none !important;
+	box-shadow: none !important;	
+	color: #000	 !important;	
+/*		*/
+}
+.content_container table td .badge{
+/*	background: #000;*/
+
+	border: 1px solid #000;
+
+}
+
+div * { page-break-before:avoid; page-break-after:avoid; }
+
+table.division {
+	page-break-after:always;
+
+}
+
+.content_container h4.nopadding{
+	page-break-before:always;
+}
