@@ -112,22 +112,15 @@
     
     <div class="copyright footer">
 	    <p>This is an unofficial remix of Cards Against Humanity, Cards Against Humanity is a trademark of <a href="http://cardsagainsthumanity.com/">Cards Against Humanity LLC</a>. Designed in-house. </p>
-	    <p>Website & Webapp by <a href="http://www.kevinandersson.dk">Kevin Andersson</a> · <a href="#" id="help">Help</a> <!--· <a href="/forum" rel="external"> Forum</a> ·--> · <a href="/humans.txt">Humans.txt</a> · <a href="/development" rel="external">Development preview</a></p><br>
+	    <p>Website & Webapp by <a href="http://www.kevinandersson.dk">Kevin Andersson</a> <!--· <a href="#" id="help">Help</a>--> <!--· <a href="/forum" rel="external"> Forum</a> ·--> · <a href="/humans.txt">Humans.txt</a> · <a href="/development" rel="external">Development preview</a></p><br>
 	    				    			<a href="https://twitter.com/share" class="twitter-share-button external" data-url="http://www.cahapp.com/" data-text="Got no #cardsagainsthumanity cards? Play with your friends using #cahapp!" data-via="kevinandersson">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
     <div class="spinner-block"></div>    
-    <div class="overlay-block">
+    <div class="overlay-block" id="help-block">
 	    <div class="wrapper">
-		    <h1>How this works.</h1>
-		    <p style="text-align:left;">Please note, this site is still in development.</p>
-		    <ol>
-			    <li><span class="olicon friends"></span>Find two geeky friends.<li/>
-				<li><span class="olicon device"></span>Visit this site on your device.<li/>
-				<li><span class="olicon addhome"></span>Add the app to your homescreen.<li/>
-				<li><span class="olicon icocards"></span>Tap the Player Card to start.<li/>				
-		    </ol>
-		    
+		    <h1>Unofficial Cards Against Humanity Remix.</h1>
+		    <p style="text-align:left; text-shadow:none;">Please note, this site is still in development.</p>
 	    </div>
     </div>        
     </body>

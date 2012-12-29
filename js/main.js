@@ -2,6 +2,27 @@ var selectedcards 	= [];
 var playercards 	= [];
 var currentcard 	= 0;
 var	points  	= 0;
+var currentlocationcard = 0;
+
+var headers = [
+			'Kevin<sup>®</sup> is still coding this sucker<sup>™</sup>. Cats.',
+			'Mr. Andersson <sup>®</sup> is still building this website. Fruitcake.',			
+			'Coding is still happening<sup>®</sup>.',
+			'Sword +2<sup>®</sup> is used to build til website.',			
+			'Kevin<sup>®</sup> is still coding this sucker<sup>™</sup>. Codez.',
+			'0100100001000101010011000100110001001111. Binary.',	
+			'Coding.',
+			'Le Code still in progress.',			
+			'Kevin<sup>®</sup> is using his wicked mind powerz.'			
+			];
+
+function setHeader(){
+	var headline = Math.floor((Math.random()*headers.length)+1);
+	$("h2.online").html(headers[headline]);
+	//console.log($("h2.online").html())
+	//console.log(headers[headline]);	
+}
+
 
 //+ Jonas Raoni Soares Silva
 //@ http://jsfromhell.com/array/shuffle [v1.0]
@@ -25,6 +46,11 @@ document.ontouchmove = function(e){ e.preventDefault(); }
 
 $(document).ready(function() {
 
+	$('#help-block').hide().fadeIn();	
+
+		
+	console.log('Document ready.');
+
 	$(document).keydown(function(e){
 	    if (e.keyCode == 37) { 
 		   window.mySwipe.prev();
@@ -35,41 +61,32 @@ $(document).ready(function() {
 	       return false;
 	    }	    
 	});
+	
+	$('#help-block').fastClick(function(){
+		$(this).fadeToggle();
+	});
+	
+	/*
+	$('#help').fastClick(function(){
+		$('.overlay-block').fadeToggle();
+	})*/;	
 
 	$('.cahapp a').live("click", function(e){
-	    e.preventDefault();
-	    //window.location = $(this).attr('href');
-	    //$(this).attr('href')
-	    if($(this).attr('href') != "#"){
-		    loadView($(this).attr('href'));
+		if(!$(this).hasClass('external')){
+		    e.preventDefault();
+		    //window.location = $(this).attr('href');
+		    //$(this).attr('href')
+		    if($(this).attr('href') != "#"){
+			    loadView($(this).attr('href'));
+		    }
+		    return false;
 	    }
-	    return false;
 	});
 	
 	
 	
 
-	$('.player #pick_card').live('click', function(e){
-
-		//alert(window.mySwipe.getPos());
-		id_tag = window.mySwipe.getPos();
-		$('#slider li:eq('+id_tag+')').find('.card').toggleClass('selected');		
-		position = selectedcards.indexOf(id_tag);
-		if ( ~position ){ 
-			selectedcards.splice(position, 1);
-		}else{
-			selectedcards.push(window.mySwipe.getPos());		
-		}
-		$('.cardcount').html(selectedcards.length);
-		$('.card_icon').html($('.player .card').size());
-		if(selectedcards.length == 0){
-			$('#playhand').addClass('disabled');
-		}else{
-			$('#playhand').removeClass('disabled');
-		}
 		
-	});
-	
 	loadView('/home');
 	//loadView('/player');
 	
@@ -81,16 +98,17 @@ function showCardPlayedOptions(){
 
 	
 	if(selectedcards.length > 1){
-		$('#getpoints').html('Receive '+selectedcards.length+' points, and draw '+selectedcards.length);
+		$('#getpoints').html('Receive '+selectedcards.length+' points');
 		$('#dealcards').html('Draw '+selectedcards.length+' new cards'); // $('.player .card').size()
 	}else{
-		$('#getpoints').html('Receive '+selectedcards.length+' point and draw '+selectedcards.length);
+		$('#getpoints').html('Receive '+selectedcards.length+' point');
 		$('#dealcards').html('Draw '+selectedcards.length+' new card'); // $('.player .card').size()
 	}
 
 	$(".alert-bar.options").hide();
 	$(".alert-bar.card_played").show();	
 	$(".alert-bar-overlay").show();	
+	$('.footer').addClass('hidden');	
 	if($(".alert-bar-overlay").hasClass("invisible")){
 		$(".alert-bar-overlay").removeClass("invisible");
 	}	
@@ -103,10 +121,11 @@ function showCardPlayedOptions(){
 }
 
 function checkCard(clicked_card){
-
+	$(clicked_card).addClass('clicked');
 	$(".alert-bar.options").show();
 	$(".alert-bar.card_played").hide();		
 	$(".alert-bar-overlay").show();	
+	$('.footer').addClass('hidden');		
 	if($(".alert-bar-overlay").hasClass("invisible")){
 		$(".alert-bar-overlay").removeClass("invisible");
 	}	
@@ -134,6 +153,7 @@ function checkCard(clicked_card){
 var drawcards = 0;
 
 function continuePlayer(){
+	currentlocationcard = 0;
 	 console.log('cards: '+playercards.length);
 	 
 	 for(var i = 0; i<selectedcards.length; i++)
@@ -167,8 +187,50 @@ function continuePlayer(){
 		}
 }
 
+function addCzarcard(){
+
+	//$('.nav-panel').fadeIn();
+	if(currentcard+1 < cards.length){
+		currentcard++;
+	}else{
+		alert('No more cards in deck.')
+	}
+	playercards.push(cards[currentcard]);
+	
+	var extra = "";	
+	if(cards[currentcard].cards == 2){
+		extra = '<span class="pick_two"><span class="tx">Pick</span><span class="count">2</span></span>';
+	}	
+	$('#slider ul').append('<li style="display:none"><div class="card black" rel="'+cards[currentcard].id+'"><p>'+cards[currentcard].data+'</p>'+extra+'</div></li>');
+
+
+	
+	// Swipe: https://github.com/bradbirdsall/Swipe/blob/master/README.md
+	window.mySwipe = new Swipe(document.getElementById('slider'), {
+	    startSlide: 0,
+	    speed: 400,
+	    callback: function(event, index, elem) {
+		 	$(".cardcount").html(cards[currentcard].cards);	   
+		 	
+		    $('.page-control li').removeClass('active');
+		    $('.page-control li:eq('+index+')').addClass('active');		 	
+	    }
+	});
+	
+	$(".player .card").on('tap',function(event) {
+			checkCard($(this));
+			
+	});
+	$('.player .card').click(function(e){
+			checkCard($(this));
+	});	
+	window.mySwipe.slide(currentcard);
+	$(".point_icon").html(currentcard+1);
+}
+
 function setupCzar(){
-	$('#shufflestack').on('click', function(){
+	$('.nav-panel').hide();
+	$('#shufflestack').fastClick(function(){
 			loadView('/czar');
 				/*
 			$('#slider').fadeOut(200, function(){
@@ -179,15 +241,26 @@ function setupCzar(){
 				
 			});*/
 	});
-	$('#nextcard').on('click', function(){	
+	
+	$('.nav-panel #nextbtn').fastClick(function(){	
 		window.mySwipe.next();
+	});
+	$('.nav-panel #prevbtn').fastClick( function(){	
+		window.mySwipe.prev();
+	});	
+	
+	$('#nextcard').fastClick( function(){	
+		addCzarcard();
+		// 		window.mySwipe.next();
 	});
 	
 
 	currentcard = 1;
 	shuffle(cards);
-	console.log(cards);
-	for(var i = 0; i<cards.length; i++){
+	//console.log(cards);
+	
+	var maxcards = 1; //cards.length
+	for(var i = 0; i<maxcards; i++){
 		playercards[i] = cards[i];
 		
 		var extra = "";
@@ -201,10 +274,11 @@ function setupCzar(){
 		else{
 			 $('#slider ul').append('<li style="display:none"><div class="card black" rel="'+cards[i].id+'"><p>'+cards[i].data+'</p>'+extra+'</div></li>');
 		}
+		currentcard = i;
 
 	}
 
-	$(".point_icon").html(cards.length);
+	$(".point_icon").html(currentcard+1);
 	$(".cardcount").html(cards[0].cards);	   
 	
 	// Swipe: https://github.com/bradbirdsall/Swipe/blob/master/README.md
@@ -212,17 +286,38 @@ function setupCzar(){
 	    startSlide: 0,
 	    speed: 400,
 	    callback: function(event, index, elem) {
-		 	$(".point_icon").html(cards.length-index);
+		 	//$(".point_icon").html(cards.length-index);
 		 	$(".cardcount").html(cards[index].cards);	   
+		 	
+		    $('.page-control li').removeClass('active');
+		    $('.page-control li:eq('+index+')').addClass('active');		 	
 	    }
 	});
+	
+	$(".player .card").on('tap',function(event) {
+			checkCard($(this));
+			
+	});
+	$('.player .card').click(function(e){
+			checkCard($(this));
+	});	
 
 }
+
+function getnextposition(){
+	if(currentlocationcard+1 < selectedcards.length){
+			currentlocationcard++;
+		}else{
+			currentlocationcard = 0;
+		}
+}
+
 function setupPlayer(){
+	currentlocationcard = 0;
 	playercards = [];
 	selectedcards = [];
 	
-	$('#getpoints').click(function(e){	
+	$('#getpoints').fastClick(function(e){	
 	
 		console.log('Get points: '+selectedcards);
 		points += selectedcards.length;
@@ -231,22 +326,33 @@ function setupPlayer(){
 		
 	});
 	
-	$('.card_played .button').click(function(e){
+	$('.card_played .button').fastClick(function(e){
 		my_timer = setTimeout(function () {
 	        continuePlayer();
         }, 1000);
 		
 	});	
 
-	$('.card_icon').on('click',function(){
+	$('.card_icon').fastClick(function(){
 		alert("You have "+$(this).html()+" cards left, and there are "+(cards.length-currentcard)+" cards left in the stack");
 	});
-	$('.cardcount').on('click',function(){
-		alert("You have picked "+$(this).html()+" cards");
+	$('.cardcount').fastClick(function(){
+		//alert("You have picked "+$(this).html()+" cards");
+		if($(this).html() != "0"){
+		getnextposition();
+		if(window.mySwipe.getPos == currentlocationcard){
+			getnextposition();
+		}
+		window.mySwipe.slide(selectedcards[currentlocationcard]);
+		}else{
+			console.log('No cards');
+		}
+
+		
 	});	
 
 	$('#pickedcards').hide();	
-	$('#pickedcards').on('click',function(){
+	$('#pickedcards').fastClick(function(){
 		$('#pickedcards').fadeOut(500);	
 		$('#pickedcards .cards').html('');
 		showCardPlayedOptions();
@@ -256,10 +362,13 @@ function setupPlayer(){
 	console.log(cards);
 	for(var i = 0; i<10; i++){
 		playercards[i] = cards[i];
+
 		if(i == 0){
+			$('.page-control').append('<li class="active">'+i+'</li>');		
 			$('#slider ul').append('<li style="display:block"><div class="card" rel="'+cards[i].id+'"><p>'+cards[i].data+'</p><span class="new_badge">New</span></div></li>');
 		}
 		else{
+			$('.page-control').append('<li>'+i+'</li>');		
 			 $('#slider ul').append('<li style="display:none"><div class="card" rel="'+cards[i].id+'"><p>'+cards[i].data+'</p><span class="new_badge">New</span></div></li>');
 		}
 		currentcard = i+1;
@@ -269,10 +378,19 @@ function setupPlayer(){
 	
 
 		
-	$("#playhand").live('click', function(e){
+	$("#clearhand").fastClick(function(e){
+			//for(var i = 0; i<selectedcards.length; i++){}
+			$('#slider .card').removeClass('selected');
+			selectedcards = [];
+			$('.cardcount').html(selectedcards.length);
+			$('#playhand').addClass('disabled');		
+	});
+		
+	$("#playhand").fastClick(function(e){
 		//console.log('play hand');
 		//$('#pickedcards').html('');
 		if(selectedcards.length > 0){
+			$("#slider .selected").fadeOut();
 			$("#slider .new_badge").remove();
 			$('#pickedcards .cards').html('');
 			for(var i = 0; i<selectedcards.length; i++)
@@ -291,11 +409,44 @@ function setupPlayer(){
 	    startSlide: 0,
 	    speed: 400,
 	    callback: function(event, index, elem) {
-	
+			    $('.page-control li').removeClass('active');
+		    $('.page-control li:eq('+index+')').addClass('active');
 	      // do something cool
 	
 	    }
 	});	
+
+
+	$('.player .card').click(function(e){
+		checkCard($(this));
+
+	});
+	
+$('.player #pick_card').fastClick(function(e){
+
+		//alert(window.mySwipe.getPos());
+
+		id_tag = window.mySwipe.getPos();
+
+		$('#slider li:eq('+id_tag+') .card').toggleClass('selected');		
+		console.log('#pick_card: '+id_tag+' card: '+$('#slider li:eq('+id_tag+') .card').html());
+		position = selectedcards.indexOf(id_tag);
+		if ( ~position ){ 
+			selectedcards.splice(position, 1);
+		}else{
+			selectedcards.push(window.mySwipe.getPos());		
+		}
+		$('.cardcount').html(selectedcards.length);
+		$('.card_icon').html($('.player .card').size());
+		if(selectedcards.length == 0){
+			$('#playhand').addClass('disabled');
+		}else{
+			$('#playhand').removeClass('disabled');
+		}
+		
+	});
+	
+
 
 	
 }
@@ -306,7 +457,8 @@ function setupOther(){
 	    startSlide: 0,
 	    speed: 400,
 	    callback: function(event, index, elem) {
-	
+		    $('.page-control li').removeClass('active');
+		    $('.page-control li:eq('+index+')').addClass('active');
 	      // do something cool
 	
 	    }
@@ -314,6 +466,8 @@ function setupOther(){
 }
 
 function loadView(url){
+	$('.spinner-block').show();
+	$("body").addClass('spinner');
 	
 	$(".cahapp").fadeOut(200, function(){
 	
@@ -321,7 +475,13 @@ function loadView(url){
 		points  	= 0;
 		
 	$('.cahapp').load(url, function() {
-  $(".cahapp").fadeIn(200);
+		$(".cahapp").fadeIn(200);
+		$("body").removeClass('spinner'); 
+
+		my_timer = setTimeout(function () {
+		$('.spinner-block').hide();
+        }, 1000);				
+
 		
 
 	$("#player").click(function(){
@@ -335,15 +495,25 @@ function loadView(url){
 	console.log('url: '+url);
 	switch(url){
 		case "/player":
-			 setupPlayer();
+				my_timer = setTimeout(function () {
+				 setupPlayer();
+		        }, 1000);				
 		 break;
 		case "/czar":
-			 setupCzar();
-		 break;		
+			my_timer = setTimeout(function () {
+				 setupCzar();
+	        }, 1000);		
+
+		 break;	
+		 case "/home":
+		 	setHeader();
+		 	setupOther()
+		 break;
 		 default:
 		 	setupOther();
 		 break; 
 	}
+	
 	
 	$(".inforounded").delay(6000).fadeOut(200);
 
@@ -379,6 +549,7 @@ function loadView(url){
 
 		my_timer = setTimeout(function () {
             $(".alert-bar-overlay").hide();
+            $('.footer').fadeIn();
         }, 500);
 	});
 	
@@ -393,7 +564,8 @@ function loadView(url){
 	});
 	*/
 	
-	$(".alert-bar-overlay .button").on('click',function(e){
+	$(".alert-bar-overlay .button").fastClick(function(e){
+		$('.footer').removeClass('hidden');
 		$(".alert-bar-overlay").removeClass("slide-up").addClass("slide-down");
 		my_timer = setTimeout(function () {
             $(".alert-bar-overlay").hide();
@@ -401,15 +573,7 @@ function loadView(url){
 
 
 	
-	$(".player .card").on('tap',function(event) {
-		checkCard($(this));
-	});
-	$('.player .card').click(function(e){
-		checkCard($(this));
-
-	});
-
-	
+		
 	});
 });
 	

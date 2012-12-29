@@ -100,6 +100,8 @@ function setPrefs()
 // ! Document Ready    
 $(document).ready(function() {
 
+
+
 $("#generate_join").click(function(){
 	
 		$(".loading").fadeIn();
@@ -243,9 +245,9 @@ $("#generate_join").click(function(){
 	    }	    
 	});
 	
-	$('#help-block').fastClick(function(){
-		$(this).fadeToggle();
-	});
+
+	
+	$('#help-block').hide().fadeIn();	
 	
 	$('.development-header').fastClick(function(){
 		$(this).fadeOut();
@@ -255,7 +257,7 @@ $("#generate_join").click(function(){
 		$('.development-header').fadeOut();
 	}, 2000);	
 	
-	$('#help').fastClick(function(){
+	$('#help-block').fastClick(function(){
 		$('#help-block').fadeToggle();
 	});	
 
