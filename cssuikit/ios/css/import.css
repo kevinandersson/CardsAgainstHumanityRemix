@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import  url("reset.css");
+@import  url("../../css/screen.css");
+@import  url("../../js/jquery-ui-1.8.18/css/ui-lightness/jquery-ui-1.8.18.custom.css");
+@import  url("/tabs/social/css/tabssocial.css");
+@import  url("ios.css");
+
+/*@import  url("screen.css");*/

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/* 
+*****
+* IOS CSS
+*
+* Kevin Andersson 2012
+* www.kevinandersson.dk
+* twitter.com/kevinandersson
+*
+***
+*/
+
+
+
+/* Tableview  END */
+
+/* START */
+/* END */
+
+
+@media all and (max-width:320px){
+	body, html{
+		height:100%;
+		width:320px;
+		padding:0;
+		margin:0;
+		overflow:visible;
+		
+	
+	}
+	.view {
+		width:100%;
+		min-height:420px;
+		height:auto;
+		padding:0;
+		border-radius:0;
+		border:none;
+		box-shadow:none;
+		padding:0;
+		overflow:visible;
+		padding-top:40px;
+		
+	}
+	.ui-header{
+		position:fixed;
+		top:0px;
+		z-index:200;
+		width:310px;
+	}
+	.background {
+		background-position:top;
+		background-attachment:scroll;
+		background-size:320px 480px;
+		background-repeat:repeat-y;
+	}
+	.view .content {
+		height:auto;
+		width:300px;
+		overflow:visible;
+
+	}
+	
+	.footer{
+		display:none;
+	}
+	
+	body{
+	margin:0!important;
+	}
+	.header{
+		display:none;
+	}
+	
+
+}
+
+@media all and (max-width: 768px) {
+body {
+/* extra styles for mobile or portrait*/
+    }
+}
+ @media all and (min-width: 769px) {
+body {
+/* extra styles for desktop or landscape*/
+    }
+}

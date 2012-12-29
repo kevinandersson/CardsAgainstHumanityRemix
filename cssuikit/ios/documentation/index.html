@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="google-site-verification" content="Uy3p6Nifoa4JIZiq0TB9rf89u0PtFvW9Aq837tS3ElM" />
+<title>CSSUIKit.com – UI Kits in CSS</title>
+<meta name="Description" content="iClock for the iPhone. The customizeable clock.">
+<link rel="stylesheet" type="text/css" media="all" href="/ios/css/import-overview.css" />
+<link rel="stylesheet" type="text/css" href="../../js/fancybox/jquery.fancybox-1.3.1.css" media="screen" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--<script type="text/javascript" src="../../js/standard.js"></script>-->
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../js/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
+<script type="text/javascript" src="../../js/fancybox/jquery.fancybox-1.3.1.js"></script>
+<link href="http://cssuikit.com/js/google-code-prettify/src/prettify.css" type="text/css" rel="stylesheet" />
+<style>
+::selection {
+	background: rgba(0,100,250,0.1); /* Safari */
+	cursor:default;
+	color:inherit;
+}
+::-moz-selection {
+ background: transparent; /* Firefox */
+}
+.doc>h2 {
+	padding:0;
+	margin:0;
+}
+.doc {
+	margin-bottom:50px;
+}
+.doc1 {
+	margin-bottom:50px;
+}
+p {
+	text-align:left;
+}
+.view{
+	border-radius:4px;
+	box-shadow:0px 2px 8px rgba(0,0,0,0.6);
+}
+
+
+</style>
+<script type="text/javascript" src="http://cssuikit.com/js/google-code-prettify/src/prettify.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	prettyPrint();
+});
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29573421-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body class="ios">
+<div class="corner">
+  <h3><a href="/preview"><br />
+    Preview!</a></h3>
+</div>
+<div class="container_16" id="wrapper">
+  <div class="grid_16" id="header">
+    <h1>CSS UI-Kit</h1>
+  </div>
+  
+    <div class="container">
+    <div class="grid_16 alpha omega">
+      <div class="doc grid_16">
+        <h2>Welcome to CSSUIKit</h2>
+        <p>All elements are interactive. Buttons have pressed / disabled / active states, so go along and press them elements.</p>
+       </div>
+      </div>
+     </div>
+  
+  <div class="container">
+    <div class="grid_16 alpha omega">
+      <div class="doc grid_16">
+        <h2>View</h2>
+        <p>A view to display your app.</p>
+        <code class="prettyprint grid_10 alpha">&lt;div class=&quot;view background striped&quot;&gt;<br />
+        <br />
+        &lt;div class=&quot;ui-header&quot;&gt; <br />&lt;a href=&quot;#&quot; class=&quot;navigation-back&quot;&gt;Back&lt;/a&gt;<br />
+&lt;h1&gt;CSSUIKit.com&lt;/h1&gt;<br />
+&lt;a href=&quot;#&quot; class=&quot;float-right disabled&quot;&gt;Edit&lt;/a&gt;<br />&lt;/div&gt;<br />
+<br />
+&lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;<br />
+&lt;h2&gt;UI Tableview&lt;/h2&gt;<br />
+<br />
+&lt;ul class=&quot;tableview&quot;&gt;<br />
+&lt;li&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;/span&gt;&lt;/li&gt;<br />
+&lt;li class=&quot;disabled&quot;&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;/span&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;<br />
+<br />
+&lt;/div&gt;<br />
+&lt;/div&gt;</code>
+        <div class="example grid_6 omega">
+          <div class="view background striped">
+        <div class="ui-header"> <a href="#" class="navigation-back" >Back</a>
+          <h1>CSSUIKit.com</h1>
+          <a href="#" class="float-right disabled" >Edit</a> </div>
+        <!-- header end-->
+        <div class="content" id="content">
+           
+           <h2>UI Tableview</h2>
+            <ul class="tableview">
+            	<li><span class="cell">Title</span></li>
+                <li class="disabled"><span class="cell">Title</span></li>
+			</ul>
+ 			
+           
+            <p>If you like it and use it, tweet about it.<br>
+            </p>
+            <p>You can follow me <a href="http://www.twitter.com/kevinandersson">@kevinandersson</a></p>
+            </div>
+      </div>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Header</h2>
+        <p>For header navigation.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;div class=&quot;ui-header&quot;&gt;<br />
+  &lt;h1&gt;Title&lt;/h1&gt;<br />
+  &lt;a href=&quot;#&quot; class=&quot;float-right navigation-button blue&quot;&gt;Label&lt;/a&gt; <br />
+  &lt;/div&gt; </code>
+        <div class="example grid_6 omega">
+          <div class="ui-header">
+            <h1>Title</h1>
+            <a href="#" class="float-right navigation-button blue">Label</a> </div>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Header, extras</h2>
+        <p>Extras for header navigation.</p>
+        <code class="prettyprint grid_10 alpha"> 
+        &lt;div class=&quot;ui-header&quot;&gt; <br />
+&lt;a href=&quot;#&quot; class=&quot;navigation-back&quot;&gt;Back&lt;/a&gt;<br />
+&lt;h1&gt;Title&lt;/h1&gt;<br />
+&lt;a href=&quot;#&quot; class=&quot;float-right disabled&quot;&gt;Edit&lt;/a&gt;<br />
+&lt;/div&gt;
+        </code>
+        <div class="example grid_6 omega">
+            <div class="ui-header"> 
+                <a href="#" class="navigation-back" >Back</a>
+                <h1>Title</h1>
+				<a href="#" class="float-right"  id="share-button"><span class="icon-share"></span></a>
+            </div>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Inset Button, Green</h2>
+        <p>Button with inset.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;span class=&quot;button-inset&quot;&gt;<br />
+        &lt;a href=&quot;#&quot; class=&quot;button green&quot;&gt;Label&lt;/a&gt;<br />
+        &lt;/span&gt; </code>
+        <div class="example grid_6 omega"> <span class="button-inset"> <a href="#" class="button green">Label</a> </span> </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Inset Button, Red</h2>
+        <p>Button with inset.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;span class=&quot;button-inset&quot;&gt;<br />
+        &lt;a href=&quot;#&quot; class=&quot;button red&quot;&gt;Label&lt;/a&gt;<br />
+        &lt;/span&gt; </code>
+        <div class="example grid_6 omega"> <span class="button-inset"> <a href="#" class="button red">Label</a> </span> </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Inset Button, Grey</h2>
+        <p>Button with inset.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;span class=&quot;button-inset&quot;&gt;<br />
+        &lt;a href=&quot;#&quot; class=&quot;button grey&quot;&gt;Label&lt;/a&gt;<br />
+        &lt;/span&gt; </code>
+        <div class="example grid_6 omega"> <span class="button-inset"> <a href="#" class="button grey">Label</a> </span> </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Inset Button, Dark Grey</h2>
+        <p>Button with inset.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;span class=&quot;button-inset&quot;&gt;<br />
+        &lt;a href=&quot;#&quot; class=&quot;button dark-grey&quot;&gt;Label&lt;/a&gt;<br />
+        &lt;/span&gt; </code>
+        <div class="example grid_6 omega"> <span class="button-inset"> <a href="#" class="button dark-grey">Label</a> </span> </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Inset Button, Yellow</h2>
+        <p>Button with inset.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;span class=&quot;button-inset&quot;&gt;<br />
+        &lt;a href=&quot;#&quot; class=&quot;button yellow&quot;&gt;Label&lt;/a&gt;<br />
+        &lt;/span&gt; </code>
+        <div class="example grid_6 omega"> <span class="button-inset"> <a href="#" class="button yellow">Label</a> </span> </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Tableview</h2>
+        <p>List view to display tables.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;ul class=&quot;tableview&quot;&gt;<br />
+        &lt;li&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;/span&gt;&lt;/li&gt;<br />
+        &lt;li class=&quot;disabled&quot;&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;/span&gt;&lt;/li&gt;<br />
+        &lt;/ul&gt; </code>
+        <div class="example grid_6 omega">
+          <ul class="tableview">
+            <li><span class="cell">Title</span></li>
+            <li class="disabled"><span class="cell">Title</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Tableview, linkable cells</h2>
+        <code class="prettyprint grid_10 alpha"> &lt;ul class=&quot;tableview&quot;&gt;<br />
+        &lt;li&gt;&lt;a class=&quot;cell&quot;&gt;Title&lt;/a&gt;&lt;/li&gt;<br />
+        &lt;li class=&quot;disabled&quot;&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;/a&gt;&lt;/li&gt;<br />
+        &lt;/ul&gt; </code>
+        <div class="example grid_6 omega">
+          <ul class="tableview">
+            <li><a class="cell">Title</a></li>
+            <li class="disabled"><a class="cell">Title</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Tableview, extras</h2>
+        <code class="prettyprint grid_10 alpha"> &lt;ul class=&quot;tableview&quot;&gt;<br />
+        &lt;li&gt;&lt;span class=&quot;list-icon mailbox&quot;&gt;&lt;/span&gt;&lt;a class=&quot;cell&quot;&gt;Title&lt;/a&gt;&lt;/li&gt;<br />
+        &lt;li&gt;&lt;a class=&quot;cell&quot;&gt;Title&lt;span class=&quot;right icon blue-arrow&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt; <br />
+        &lt;li&gt;&lt;a class=&quot;cell&quot;&gt;Title&lt;span class=&quot;arrow&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br />
+        &lt;li&gt;&lt;a class=&quot;cell&quot;&gt;Title&lt;span class=&quot;blue-label right&quot;&gt;Label&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br />
+        &lt;li&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;input name=&quot;Checkbox&quot; type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;&lt;/span&gt;&lt;/li&gt; <br />
+        &lt;li class=&quot;disabled&quot;&gt;&lt;span class=&quot;cell&quot;&gt;Title&lt;input name=&quot;Checkbox&quot; type=&quot;checkbox&quot;  disabled=&quot;disabled&quot;&gt;&lt;/span&gt;&lt;/li&gt; <br />
+        &lt;li&gt;<br />
+        &lt;label for=&quot;license&quot; class=&quot;ui-input-text&quot;&gt;Label&lt;/label&gt;<br />
+        &lt;input type=&quot;text&quot; name=&quot;license&quot; id=&quot;license&quot; placeholder=&quot;Placeholder&quot; class=&quot;ui-input-text ui-body-c ui-corner-all ui-shadow-inset&quot;&gt;&lt;/li&gt; <br />
+        &lt;/ul&gt;</code>
+        <div class="example grid_6 omega">
+          <ul class="tableview">
+            <li><span class="list-icon mailbox"></span><a class="cell">Title</a></li>
+            <li><a class="cell">Title<span class="right icon blue-arrow"></span></a></li>
+            <li><a class="cell">Title<span class="arrow">&gt;</span></a></li>
+            <li><a class="cell">Title<span class="blue-label right">Label</span></a></li>
+            <li><span class="cell">Title
+              <input name="Checkbox" type="checkbox"  checked="checked">
+            </span></li>
+            <li class="disabled"><span class="cell">Title
+              <input name="Checkbox" type="checkbox"   disabled="disabled">
+            </span></li>
+            <li>
+              <label for="license" class="ui-input-text">Label</label>
+              <input type="text" name="license" id="license" placeholder="Placeholder" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Dialog window</h2>
+        <p>Dialog window for alerts &amp; prompts.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;div class=&quot;dialog&quot;&gt;<br />
+  &lt;h2&gt;CSS dialog window&lt;/h2&gt;<br />
+  &lt;p&gt;Dialog window description.&lt;/p&gt;<br />
+  &lt;a href=&quot;#&quot; class=&quot;button cancel&quot;&gt;Cancel&lt;/a&gt;<br />
+  &lt;a href=&quot;#&quot; class=&quot;button confirm&quot;&gt;OK&lt;/a&gt; <br />
+  &lt;br class=&quot;clear&quot;&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;/div&gt; </code>
+        <div class="example grid_6 omega">
+          <div class="dialog" style="position:relative;">
+            <h2>CSS dialog window</h2>
+            <p>Dialog window description.</p>
+            <a href="#" class="button cancel" ontouchstart="">Cancel</a> <a href="#" class="button confirm" ontouchstart="">OK</a> <br class="clear" />
+          </div>
+        </div>
+      </div>
+      <div class="doc grid_16">
+        <h2>Dialog window, extras</h2>
+        <p>Single button dialog window.</p>
+        <code class="prettyprint grid_10 alpha"> &lt;div class=&quot;dialog&quot;&gt;<br />
+  &lt;h2&gt;CSS dialog window&lt;/h2&gt;<br />
+  &lt;p&gt;Dialog window description.&lt;/p&gt;<br />
+  &lt;a href=&quot;#&quot; class=&quot;button_wide confirm&quot;&gt;OK&lt;/a&gt; <br />
+  &lt;br class=&quot;clear&quot;&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;/div&gt; </code>
+        <div class="example grid_6 omega">
+          <div class="dialog" style="position:relative;">
+        <h2>CSS dialog window</h2>
+        <p>Dialog window description.</p>
+        <a href="#" class="button wide confirm">OK</a> 
+        <br class="clear">
+        </div>
+        </div> 
+        </div>
+        
+		<div class="doc grid_16">
+        <h2>Navigation button</h2>
+        <p>Button.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;navigation-button&quot;&gt;Label&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+				<a href="#" class="navigation-button" ontouchstart="">Label</a>
+            </div>
+      	</div>      
+		
+        <div class="doc grid_16">
+        <h2>Navigation button, disabled</h2>
+        <p>Button disabled.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;navigation-button disabled&quot;&gt;Label&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+				<a href="#" class="navigation-button disabled" ontouchstart="">Label</a>
+            </div>
+      	</div>    
+        
+        <div class="doc grid_16">
+        <h2>Navigation button, black</h2>
+        <p>Button black.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;navigation-button black&quot;&gt;Label&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+				<a href="#" class="navigation-button black" ontouchstart="">Label</a>
+            </div>
+      	</div>  
+        
+        <div class="doc grid_16">
+        <h2>Navigation button, blue</h2>
+        <p>Button blue.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;navigation-button blue&quot;&gt;Label&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+				<a href="#" class="navigation-button blue" ontouchstart="">Label</a>
+            </div>
+      	</div> 
+        
+        <div class="doc grid_16">
+        <h2>Navigation button, red</h2>
+        <p>Button red.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;navigation-button red&quot;&gt;Label&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+				<a href="#" class="navigation-button red" ontouchstart="">Label</a>
+            </div>
+      	</div>                 
+        
+        <div class="doc grid_16">
+        <h2>Navigation button, back</h2>
+        <p>Button.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;navigation-back&quot;&gt;Back&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+				<a href="#" class="navigation-back" ontouchstart="">Back</a>
+            </div>
+      	</div>      
+        
+        <div class="doc grid_16">
+        <h2>Email link</h2>
+        <p>Used in iOS to display emails.</p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;#&quot; class=&quot;email-name&quot;&gt;Label&lt;span class=&quot;arrow&quot;&gt;&lt;/span&gt;&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+              <a href="#" class="email-name">Label<span class="arrow"></span></a>
+            </div>
+      	</div>
+       
+       <div class="doc grid_16">
+        <h2>Numbered badge</h2>
+        <p>A numbered badge.</p>
+        
+        <code class="prettyprint grid_10 alpha">               &lt;a href=&quot;#&quot; class=&quot;outlined-icon amount-badge&quot;&gt;25&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+              <a href="#" class="outlined-icon amount-badge">25</a>
+            </div>
+   	  </div>
+         
+         <div class="doc grid_16">
+        <h2>Arrow badge</h2>
+        <p></p>
+        
+        <code class="prettyprint grid_10 alpha"> &lt;a href=&quot;# &quot; class=&quot;outlined-icon blue-arrow&quot;&gt;&lt;/a&gt;</code>
+        
+            <div class="example grid_6 omega">
+              <a href="# " class="outlined-icon blue-arrow"></a>
+            </div>
+      	</div> 
+        
+        <!--
+        <div class="doc grid_16">
+        <h2>Tableview</h2>
+        <p>List view to display tables.</p>
+        
+        <code class="prettyprint grid_10 alpha"> code</code>
+        
+            <div class="example grid_6 omega">
+              example
+            </div>
+      	</div>
+      
+      -->
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+<br class="clear" />
+</div>
+</div>
+<br class="clear" />
+<div class="_grid_16 footer tonedown"> <span id="showfooter"><span class="plusicon"></span></span>
+  <p>Created by <a href="https://twitter.com/#!/kevinandersson"> Kevin Andersson</a> – <a href="https://twitter.com/#!/cssuikit">CSSUIKit on Twitter</a> – Tabs™ Icons is the property of <a href="http://www.tabsicons.com">tabsicons.com</a>.</p>
+</div>
+</body>
+</html>
