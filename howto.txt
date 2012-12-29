@@ -1,0 +1,33 @@
+www.cahapp.com/online
+Development version
+
+Setup 
+
+
+Grab two friends with an iPhone as well as a bottle of booze
+
+All visit www.cahapp.com/online (development edition)
+
+Add the app to your homescreen, for browserfree hazzle
+
+Make one player generate a key, and the others enter that same key to join a game
+
+Optional. Add an iPad or laptop on the table, entering the same key
+
+Select a deck (there is currently danish and the original deck)
+
+
+
+
+Playing 
+
+
+Select player for the players, and czar for the optional iPad
+
+If you have an iPad the first czar card should have been dealt, if not, make one player tap the black card on the titlebar
+
+Pick your white card(s) by tapping the blue button. (You can unselect a card the same way)
+
+When everyone has dealt their cards, tap the black card on the iPad, and pick show hands
+
+As the czar, pick the best card
